@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>🚀 Roket Super Dewa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= MENU ================= -->
+<div id="menu">
+  <h1>🚀 ROKET GAME</h1>
+<h3>🛰️ Nusantara Nova-01</h3>
+<p>👨‍🚀 Pembuat: Muhamad Nurrozaq</p>
+  <p>Pilih Level:</p>
+
+  <button onclick="startGame('easy')">🟢 EASY</button>
+  <button onclick="startGame('hard')">🔴 HARD</button>
+  <button onclick="startGame('super')">💀 SUPER HARD</button>
+</div>
+
+<!-- ================= GAME ================= -->
+<div id="game" style="display:none;">
+
+  <h2 id="levelText">Level</h2>
+
+  <div class="scene">
+    <canvas id="particles"></canvas>
+
+    <div id="rocket" class="rocket">
+      <div class="nose"></div>
+      <div class="body"></div>
+      <div class="fin left"></div>
+      <div class="fin right"></div>
+    </div>
+  </div>
+
+  <p>🎯 Target: <span id="targetText">0</span> m</p>
+
+  <!-- SLIDER -->
+  <input type="range" min="1" max="100" value="20" id="slider">
+  <p>Pompa: <span id="pumpVal">20</span></p>
+
+  <!-- BUTTON -->
+  <button onclick="launch()">🚀 Launch</button>
+  <button onclick="aiSuggest()">🤖 AI</button>
+
+  <!-- GYRO TOGGLE -->
+  <button onclick="toggleGyro()" id="gyroBtn">
+    📱 Aktifkan Kontrol HP
+  </button>
+
+  <button onclick="backMenu()">🔙 Menu</button>
+
+  <!-- INFO -->
+  <p id="info"></p>
+  <p id="score"></p>
+
+  <!-- SOUND -->
+  <audio id="boomSound"
+    src="https://www.soundjay.com/explosion/sounds/explosion-01.mp3">
+  </audio>
+
+</div>
+
+<!-- SCRIPT -->
+<script src="script.js"></script>
+
+</body>
+</html>
