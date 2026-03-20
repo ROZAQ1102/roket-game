@@ -1,38 +1,70 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>Game Tebak Angka</title>
-
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>🚀 Roket Super Dewa</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="game-box">
-<canvas id="game"></canvas>
-    <h1>🎮 Tebak Angka</h1>
-<p class="creator">👨‍💻 Pembuat: Muhammad Nurrozaq</p>
-    <p>Tebak angka sesuai level!</p>
+<!-- ================= MENU ================= -->
+<div id="menu">
+  <h1>🚀 ROKET GAME</h1>
+<h3>🛰️ Nusantara Nova-01</h3>
+<p>👨‍🚀 Pembuat: Muhamad Nurrozaq</p>
+  <p>Pilih Level:</p>
 
-    <input type="number" id="inputAngka" placeholder="Masukkan angka">
-    <br>
-
-    <button onclick="cek()">Cek</button>
-    <button onclick="resetGame()">Reset</button>
-
-    <p id="hasil"></p>
-    <p id="info"></p>
-
-    <!-- ⏱️ Timer Bar -->
-    <div class="time-bar">
-        <div id="timeFill"></div>
-    </div>
+  <button onclick="startGame('easy')">🟢 EASY</button>
+  <button onclick="startGame('hard')">🔴 HARD</button>
+  <button onclick="startGame('super')">💀 SUPER HARD</button>
 </div>
 
-<!-- 🎉 Confetti -->
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<!-- ================= GAME ================= -->
+<div id="game" style="display:none;">
 
+  <h2 id="levelText">Level</h2>
+
+  <div class="scene">
+    <canvas id="particles"></canvas>
+
+    <div id="rocket" class="rocket">
+      <div class="nose"></div>
+      <div class="body"></div>
+      <div class="fin left"></div>
+      <div class="fin right"></div>
+    </div>
+  </div>
+
+  <p>🎯 Target: <span id="targetText">0</span> m</p>
+
+  <!-- SLIDER -->
+  <input type="range" min="1" max="100" value="20" id="slider">
+  <p>Pompa: <span id="pumpVal">20</span></p>
+
+  <!-- BUTTON -->
+  <button onclick="launch()">🚀 Launch</button>
+  <button onclick="aiSuggest()">🤖 AI</button>
+
+  <!-- GYRO TOGGLE -->
+  <button onclick="toggleGyro()" id="gyroBtn">
+    📱 Aktifkan Kontrol HP
+  </button>
+
+  <button onclick="backMenu()">🔙 Menu</button>
+
+  <!-- INFO -->
+  <p id="info"></p>
+  <p id="score"></p>
+
+  <!-- SOUND -->
+  <audio id="boomSound"
+    src="https://www.soundjay.com/explosion/sounds/explosion-01.mp3">
+  </audio>
+
+</div>
+
+<!-- SCRIPT -->
 <script src="script.js"></script>
+
 </body>
 </html>
